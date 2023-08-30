@@ -171,7 +171,7 @@
         </el-col>
 
         <el-col :span="11">
-          <el-form-item label="老板键">
+          <el-form-item label="切换显示">
             <el-select style="width:138px;" v-model="keyBoss" size="mini" placeholder="请选择">
               <el-option label="Alt" value="Alt"></el-option>
               <el-option label="CmdOrCtrl" value="CmdOrCtrl"></el-option>
@@ -262,14 +262,9 @@
           <!-- <el-form-item label="股票模式">
             <el-switch v-model="is_display_shares" @change="onModel2"></el-switch>
           </el-form-item>-->
-          <span class="nbx">此处未来有更牛逼的功能</span>
         </el-form>
       </div>
       <hr />
-      <p class="sizex">查看官网，找我微信</p>
-      <p class="sizex">扫码进群</p>
-      <p class="sizex">探讨摸鱼人生</p>
-      <p class="cteamx" @click="openUrl">C.TEAM 出品</p>
     </div>
   </el-container>
 </template>

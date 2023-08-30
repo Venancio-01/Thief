@@ -23,7 +23,7 @@ import fs from "fs";
 import hotkeys from "hotkeys-js";
 import { ipcRenderer } from "electron";
 import dialog from "../utils/dialog";
-import PDFJS from "pdfjs-dist";
+// import PDFJS from "pdfjs-dist";
 
 export default {
   name: "pdf",
@@ -95,25 +95,25 @@ export default {
       vm.canvasData = [];
       var data = fs.readFileSync(vm.pdfurl);
       var typedarray = new Uint8Array(data);
-      PDFJS.getDocument(typedarray)
-        .then(pdfDoc_ => {
-          // 初始化pdf
-          vm.pdfDoc = pdfDoc_;
-          vm.page_count = vm.pdfDoc.numPages;
-          for (let i = 0; i < vm.page_count; i += 1) {
-            vm.canvasData.push(i + 1);
-          }
-          return pdfDoc_;
-        })
-        .then(pdfDoc_ => {
-          // 初始化pdf
-          vm.pdfDoc = pdfDoc_;
-          vm.page_count = vm.pdfDoc.numPages;
-          for (let i = 0; i < vm.page_count; i += 1) {
-            vm.renderPage(i + 1);
-          }
-          vm.loading = false;
-        });
+      // PDFJS.getDocument(typedarray)
+      //   .then(pdfDoc_ => {
+      //     // 初始化pdf
+      //     vm.pdfDoc = pdfDoc_;
+      //     vm.page_count = vm.pdfDoc.numPages;
+      //     for (let i = 0; i < vm.page_count; i += 1) {
+      //       vm.canvasData.push(i + 1);
+      //     }
+      //     return pdfDoc_;
+      //   })
+      //   .then(pdfDoc_ => {
+      //     // 初始化pdf
+      //     vm.pdfDoc = pdfDoc_;
+      //     vm.page_count = vm.pdfDoc.numPages;
+      //     for (let i = 0; i < vm.page_count; i += 1) {
+      //       vm.renderPage(i + 1);
+      //     }
+      //     vm.loading = false;
+      //   });
     },
     onLoad() {},
     onSo() {

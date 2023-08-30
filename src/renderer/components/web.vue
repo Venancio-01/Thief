@@ -1,7 +1,7 @@
 <template>
   <el-container class="container">
     <div class="divx"></div>
-    <div class="setting" v-if="is_setting">
+    <div class="setting" v-show="is_setting">
       <el-input
         v-model="input"
         placeholder="请输入URL"
@@ -34,11 +34,9 @@ export default {
     };
   },
   created() {
-    this.onLoad();
     this.onKey();
   },
   methods: {
-    onLoad() {},
     onSo() {
       this.url = this.input;
       ipcRenderer.send("webOpacity", "change");
@@ -94,6 +92,7 @@ export default {
     width: 100%;
     height: 100%;
     border: 0px;
+    overflow:hidden;
   }
 
   .setting {
