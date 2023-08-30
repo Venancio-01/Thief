@@ -157,7 +157,6 @@ function createVideo() {
         maximizable: false,
         minimizable: false,
         transparent: true,
-        resizable: true,
         frame: frame,
         webPreferences: {
             nodeIntegration: true
@@ -168,7 +167,6 @@ function createVideo() {
     webContents.on('did-finish-load', () => {
         webContents.setZoomFactor(1);
         webContents.setVisualZoomLevelLimits(1, 1);
-        webContents.setLayoutZoomLevelLimits(0, 0);
     })
 
     videoWindow.loadURL(videoURL)
@@ -200,7 +198,6 @@ function createPdf() {
         maximizable: false,
         minimizable: false,
         transparent: true,
-        resizable: true,
         frame: frame,
         webPreferences: {
             nodeIntegration: true
@@ -211,7 +208,7 @@ function createPdf() {
     webContents.on('did-finish-load', () => {
         webContents.setZoomFactor(1);
         webContents.setVisualZoomLevelLimits(1, 1);
-        webContents.setLayoutZoomLevelLimits(0, 0);
+        
     })
 
     pdfWindow.loadURL(pdfURL)
@@ -235,15 +232,12 @@ function createWeb() {
     if (isMac) {
         frame = false;
     }
-
+    
     webWindow = new BrowserWindow({
         useContentSize: true,
         width: 478,
-        height: 28,
-        maximizable: false,
-        minimizable: false,
+        height: 228,
         transparent: true,
-        resizable: true,
         frame: frame,
         webPreferences: {
             nodeIntegration: true,
@@ -255,7 +249,7 @@ function createWeb() {
     webContents.on('did-finish-load', () => {
         webContents.setZoomFactor(1);
         webContents.setVisualZoomLevelLimits(1, 1);
-        webContents.setLayoutZoomLevelLimits(0, 0);
+        
     })
 
     webWindow.loadURL(webURL)
@@ -280,7 +274,6 @@ function createSoSetting() {
         useContentSize: true,
         width: 334,
         height: 540,
-        // resizable: false,
         maximizable: false,
         minimizable: false,
         webPreferences: {
@@ -292,7 +285,7 @@ function createSoSetting() {
     webContents.on('did-finish-load', () => {
         webContents.setZoomFactor(1);
         webContents.setVisualZoomLevelLimits(1, 1);
-        webContents.setLayoutZoomLevelLimits(0, 0);
+        
     })
 
     soWindow.loadURL(soURL)
@@ -312,7 +305,6 @@ function createWindownSetting() {
         useContentSize: true,
         width: 715,
         height: 630,
-        resizable: false,
         maximizable: false,
         minimizable: false,
         webPreferences: {
@@ -324,7 +316,7 @@ function createWindownSetting() {
     webContents.on('did-finish-load', () => {
         webContents.setZoomFactor(1);
         webContents.setVisualZoomLevelLimits(1, 1);
-        webContents.setLayoutZoomLevelLimits(0, 0);
+        
     })
 
     settingWindow.loadURL(settingURL)
@@ -364,7 +356,6 @@ function createWindownDesktop() {
         useContentSize: true,
         width: width,
         height: height,
-        resizable: true,
         frame: false,
         transparent: true,
         hasShadow: false,
@@ -379,7 +370,7 @@ function createWindownDesktop() {
     webContents.on('did-finish-load', () => {
         webContents.setZoomFactor(1);
         webContents.setVisualZoomLevelLimits(1, 1);
-        webContents.setLayoutZoomLevelLimits(0, 0);
+        
     })
 
     desktopWindow.loadURL(desktopURL)
@@ -413,7 +404,6 @@ function createWindownBarDesktop() {
         useContentSize: true,
         width: 88,
         height: 23,
-        resizable: true,
         frame: false,
         transparent: true,
         webPreferences: {
@@ -430,7 +420,6 @@ function createWindownBarDesktop() {
     webContents.on('did-finish-load', () => {
         webContents.setZoomFactor(1);
         webContents.setVisualZoomLevelLimits(1, 1);
-        webContents.setLayoutZoomLevelLimits(0, 0);
     })
 
     desktopBarWindow.loadURL(desktopURL)

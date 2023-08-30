@@ -1,4 +1,3 @@
-'use strict';
 import low from 'lowdb'
 import FileSync from 'lowdb/adapters/FileSync'
 import path from 'path'
@@ -14,17 +13,8 @@ export default {
         };
     },
     init() {
-        // if (process.env.NODE_ENV !== 'development') {
-        //     global.__static = path.join(__dirname, '/static').replace(/\\/g, '\\\\')
-        // }
-
-        // if (process.env.DEBUG_ENV === 'debug') {
-        //     global.__static = path.join(__dirname, '../../static').replace(/\\/g, '\\\\')
-        // }
-
         let APP = process.type === 'renderer' ? remote.app : app
         let STORE_PATH = APP.getPath('userData')
-        // let STORE_PATH = "/Users/sanjin/work/h5/vue/thief-book/static"
 
         if (process.type !== 'renderer') {
             if (!fs.pathExistsSync(STORE_PATH)) {
