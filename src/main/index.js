@@ -209,8 +209,8 @@ function createWeb() {
 
   webWindow = new BrowserWindow({
     useContentSize: true,
-    width: 128,
-    height: 28,
+    width: 300,
+    height: 68,
     transparent: true,  
     maximizable: false,
     minimizable: false,

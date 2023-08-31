@@ -2,13 +2,10 @@
   <el-container class="container">
     <div class="divx"></div>
     <div class="setting" v-show="is_setting">
-      <el-input
-        v-model="input"
-        placeholder="请输入URL"
-        clearable
-        size="mini"
-        @keyup.enter.native="onSo"
-      ></el-input>
+      <el-input v-model="input" placeholder="请输入URL" clearable size="mini" @keyup.enter.native="onSo"></el-input>
+      <el-button size="small" @click="handleOpenPage('https://weread.qq.com')">微信阅读</el-button>
+      <el-button size="small" @click="handleOpenPage('https://www.baidu.com')">百度</el-button>
+      <el-button size="small" @click="handleOpenPage('https://www.bilibili.com')">哔哩哔哩</el-button>
     </div>
     <webview
       v-if="url"
@@ -30,7 +27,7 @@ export default {
     return {
       url: null,
       is_setting: true,
-      input: ""
+      input: "",
     };
   },
   created() {
@@ -48,14 +45,18 @@ export default {
         this.is_setting = true;
       }
     },
+    handleOpenPage(url) {
+      this.url = url;
+      ipcRenderer.send("webOpacity", "change");
+    },
     onKey() {
       var that = this;
 
-      hotkeys.filter = function(event) {
+      hotkeys.filter = function (event) {
         return true;
       };
 
-      hotkeys("*", function(e) {
+      hotkeys("*", function (e) {
         if (e.key === "z") {
           var t = document.querySelector(".ifr");
           t.reload();
@@ -69,8 +70,8 @@ export default {
           ipcRenderer.send("webOpacity", "exit");
         }
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -92,7 +93,7 @@ export default {
     width: 100%;
     height: 100%;
     border: 0px;
-    overflow:hidden;
+    overflow: hidden;
   }
 
   .setting {
